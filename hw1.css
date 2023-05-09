@@ -1,5 +1,5 @@
 body {
-    background-color: #F0EFEA;
+    background-color: #f7f3e1;
     font-family: 'Montserrat';
     margin-right: 32px;
     margin-left: 25px;
@@ -15,7 +15,7 @@ body {
     text-align: justify;
 }
 
-.titoli h1{
+.titoli h1 {
     text-align: center;
 }
 
@@ -30,22 +30,22 @@ body {
     background-image: url('immagini/up.png');
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: rgba(240, 239, 234, 1);
+    background-color: #f7f3e1;
     border-color: rgba(0, 0, 0, 0);
     border-radius: 10px;
     width: 35px;
     height: 35px;
-  }
-  
-  #upbtn:hover {
+}
+
+#upbtn:hover {
     background-color: #555;
     color: rgb(255, 255, 255);
-  }
-  
-  #menubtn {
+}
+
+#menubtn {
     display: block;
     position: fixed;
-    top: 10px;
+    top: 15px;
     right: 10px;
     z-index: 99;
     font-size: 18px;
@@ -53,23 +53,23 @@ body {
     background-image: url('immagini/hamburger.png');
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: rgba(240, 239, 234, 1);
+    background-color: #f7f3e1;
     border-color: rgba(0, 0, 0, 0);
     border-radius: 10px;
     width: 35px;
     height: 35px;
-  }
-  
-  #menubtn:hover {
+}
+
+#menubtn:hover {
     background-color: #555;
     color: rgb(255, 255, 255);
-  }
+}
 
-    
-  #menux {
+
+#menux {
     display: none;
     position: fixed;
-    top: 10px;
+    top: 15px;
     right: 10px;
     z-index: 99;
     font-size: 18px;
@@ -77,31 +77,32 @@ body {
     background-image: url('immagini/close.png');
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: rgba(240, 239, 234, 1);
+    background-color: #f7f3e1;
     border-color: rgba(0, 0, 0, 0);
     border-radius: 10px;
     width: 35px;
     height: 35px;
-  }
-  
-  #menux:hover {
+}
+
+#menux:hover {
     background-color: #555;
     color: rgb(255, 255, 255);
-  }
+}
 
 nav {
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 0;
+    top: 10px;
     right: 0;
-    background-color: green;
-    height: 720px;
+    background-color: #f7f3e1;
+    height: 700px;
     width: 18%;
     z-index: 1;
+    border-radius: 6px;
 }
 
-#linkmenu{
+#linkmenu {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -109,15 +110,35 @@ nav {
     margin-top: 60px;
 }
 
-#linkmenu a{
-   margin-bottom: 10px;
-   text-decoration: none;
-   font-size:  18px;
+#logomenu{
+    background-color: #191919;
+    border-radius: 6px;
+    margin-top: auto;
+}
+
+#logomenu img{
+    display: block;
+    max-width: 350px;
+    margin-left: -65px;
 
 }
 
+#linkmenu a {
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #858E92;
+}
 
+#linkmenu a:hover {
+    color: #191919 !important;
+    text-decoration: none;
+}
 
+#linkmenu a:active {
+    color: #191919 !important;
+    text-decoration: none;
+}
 
 
 header {
@@ -141,7 +162,7 @@ header {
 #introduction p {
     text-align: center;
     font-size: 24px;
-    color: #f0efea;
+    color: #f7f3e1;
 }
 
 #introduction p {
@@ -195,7 +216,7 @@ header {
 }
 
 .card {
-    background-color: #f0efea;
+    background-color: #f7f3e1;
     border-radius: 6px;
     max-height: 10%;
     max-width: 20vw;
@@ -321,7 +342,7 @@ footer img {
     margin-right: 8px;
 }
 
-.logo img{
+.logo img {
     margin-top: 15px;
     width: 400px;
 }

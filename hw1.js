@@ -3,10 +3,12 @@ const UPButton = document.querySelector('#upbtn');
 const MenuButton = document.querySelector('#menubtn');
 const MenuCloseButton = document.querySelector('#menux');
 const Nav = document.querySelector('nav');
+const Set_ = document.querySelector('.card')
 
 UPButton.addEventListener('click', topFunction);
 MenuButton.addEventListener('click', hammenu);
 MenuCloseButton.addEventListener('click', dishammenu);
+Set_.addEventListener('click', goset);
 
 function hammenu() {
     MenuButton.style.display = 'none';
@@ -21,6 +23,10 @@ function dishammenu() {
     MenuCloseButton.style.display = 'none';
     Nav.style.display = "none";
     UPButton.style.zIndex = '1';
+}
+
+function goset() {
+    window.open("setnatura.html");
 }
 
 
