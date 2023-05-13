@@ -348,4 +348,36 @@ footer img {
 }
 
 
-/*implementare con event listener per il tignuoso   <button onclick="topFunction()" id="upbtn" title="Go to top"></button>  */
+/*home*/
+
+#ricerca {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    background-color: #f7f3e1;
+    border-radius: 6px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#ricerca input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    border: solid 2px #191919;
+}
+
+#ricerca button[type="submit"] {
+    background-color: #191919;
+    color: #f7f3e1;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+#res{
+    margin-top: 150px;
+    display: flex;
+}
