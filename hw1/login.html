@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="./hw1.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <title>Natura</title>
+    <title>Contacts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -17,9 +17,10 @@
 
     <nav>
         <div id="linkmenu">
-            <a href="./hw1.html"> Home </a>
-            <a href="./setpage.html"> Set </a>
-            <a href="./contacts.html"> Contatti </a>
+            <a href="./hw1.php"> Home </a>
+            <a href="./setpage.php"> Set </a>
+            <a href="./contacts.php"> Contatti </a>
+            <a id="log" href="./login.html"> Login </a>
         </div>
 
         <div id="logomenu">
@@ -30,20 +31,43 @@
     </nav>
 
 
-    <h1>This is a Heading</h1>
-    <p>This is a paragraph.</p>
+    <div id="divform">
+        <div id="Log">
+            <h2> Accedi </h2>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="nome" name="nome">
+            </form>
 
-    <section class="grid">
-        <div class="item"><img src="https://picsum.photos/900/450?hash=1" alt="Immagine 1"></div>
-        <div class="item"><img src="https://picsum.photos/900/450?hash=2" alt="Immagine 2"></div>
-        <div class="item"><img src="https://picsum.photos/900/450?hash=3" alt="Immagine 3"></div>
-        <div class="item"><img src="https://picsum.photos/900/450?hash=4" alt="Immagine 4"></div>
-        <div class="item"><img src="https://picsum.photos/900/450?hash=5" alt="Immagine 5"></div>
-        <div class="item"><img src="https://picsum.photos/900/450?hash=6" alt="Immagine 6"></div>
-        <div class="item"><img src="https://picsum.photos/900/450?hash=7" alt="Immagine 7"></div>
-        <div class="item"><img src="https://picsum.photos/900/450?hash=8" alt="Immagine 8"></div>
-        <div class="item"><img src="https://picsum.photos/900/450?hash=9" alt="Immagine 9"></div>
-    </section>
+            <form>
+                <label for="password">Password:</label>
+                <input type="text" id="cognome" name="cognome">
+            </form>
+
+            <form>
+                <input type="submit" value="Invia">
+            </form>
+        </div>
+
+        <div id="Reg">
+            <h2> Registarti </h2>
+            <form>
+                <label for="Username">Username:</label>
+                <input type="text" id="nome" name="nome">
+            </form>
+
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </form>
+
+            <form>
+                <input type="submit" value="Invia">
+            </form>
+        </div>
+
+
+    </div>
 
     <footer>
         <div class="contact-info">
@@ -64,8 +88,8 @@
         </div>
 
     </footer>
-
-    <script src="./hw1.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/contacts.js"></script>
 
 </body>
 
