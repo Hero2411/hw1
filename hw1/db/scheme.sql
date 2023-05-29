@@ -177,7 +177,7 @@ INSERT INTO `photos` VALUES
 (97, 'image97.jpg', 2, 'Alt_Text'),
 (98, 'image98.jpg', 3, 'Alt_Text'),
 (99, 'image99.jpg', 4, 'Alt_Text'),
-(100, 'image100.jpg', 6, 'Alt_Text'),
+(100, 'image100.jpg', 3, 'Alt_Text'),
 (101, 'image105.jpg', 6, 'Alt_Text'),
 (102, 'image107.jpg', 6, 'Alt_Text'),
 (103, 'image108.jpg', 6, 'Alt_Text'),

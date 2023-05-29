@@ -97,7 +97,7 @@ nav {
   right: 0;
   background-color: #f7f3e1;
   height: 90vh;
-  width: 20vw;
+  width: 300px;
   z-index: 10;
   border-radius: 6px;
 }
@@ -140,7 +140,7 @@ nav {
 }
 
 #log_action {
-  margin-top: 325px !important;
+  border: #191919 solid 3px;
   border-radius: 15px;
   border: #858e92 solid 2px;
   padding: 3px;
