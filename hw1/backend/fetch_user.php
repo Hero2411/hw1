@@ -11,18 +11,15 @@ if (!$db_connector) {
     die();
 }
 
-// COPYPASTA END
-
-// LOGIC START
-
-if (!isset($_GET['id'])) {
-    $response_data["error"] = "Image not provided";
-    $response_json = json_encode($response_data);
-    echo $response_json;
+if (!isAuthorized($db_connector)) {
     die();
 }
 
-$query = "SELECT avg(rating) as avg_rating, COUNT(*) as total FROM photo_ratings WHERE photo_id = " . $_GET['id'];
+// COPYPASTA END
+
+$token = $_GET["token"];
+
+$query = "SELECT id, username  FROM users WHERE token='$token'";
 $result = $db_connector->query($query);
     if (!$result) {
         $response_data["error"] = "Unable to execute query";
@@ -30,17 +27,17 @@ $result = $db_connector->query($query);
     else {
         if (mysqli_num_rows($result) > 0) {
             $response_data["data"] = $result->fetch_assoc();
-            $sub_query = "SELECT comment_date, comment_text, username FROM photo_comments pc, users u WHERE photo_id = " . $_GET['id'] . " and user_id = u.id";
+            $sub_query = "SELECT * FROM photos p, photo_favorites pf WHERE pf.photo_id = p.id and pf.user_id = \"" . $response_data["data"]['id'] . "\"";
             $sub_result = $db_connector->query($sub_query);
                 if (!$sub_result) {
                     $response_data["error"] = "Unable to execute sub_query";
                 }
                 else {
-                    $response_data["data"]["comments"] = $sub_result->fetch_all(MYSQLI_ASSOC);
+                    $response_data["data"]["images"] = $sub_result->fetch_all(MYSQLI_ASSOC);
                 }
             }
         else {
-            $response_data["error"] = "Image ID not valid";
+            $response_data["error"] = "No user found!";
         }
     }
 $response_json = json_encode($response_data);

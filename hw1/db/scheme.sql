@@ -8,6 +8,7 @@ CREATE TABLE users (
   id int NOT NULL AUTO_INCREMENT,
   username varchar(32) NOT NULL UNIQUE,
   password char(32) NOT NULL,
+  token varchar(36) NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -63,16 +64,18 @@ CREATE TABLE photo_favorites (
 
 -- 2e6380b6537c5fce2bb321b48bf0785d => capybara
 INSERT INTO `users` VALUES 
-(1,'lmancini','2e6380b6537c5fce2bb321b48bf0785d'),
-(2,'shaira78','2e6380b6537c5fce2bb321b48bf0785d'),
-(3,'rebecca.marini','2e6380b6537c5fce2bb321b48bf0785d');
+(1,'lmancini','2e6380b6537c5fce2bb321b48bf0785d', UUID()),
+(2,'shaira78','2e6380b6537c5fce2bb321b48bf0785d', UUID()),
+(3,'rebecca.marini','2e6380b6537c5fce2bb321b48bf0785d', UUID()),
+(4,'lordcapybara','2e6380b6537c5fce2bb321b48bf0785d', UUID());
 
 INSERT INTO `shoot_sets` VALUES 
 (1,'Facere quidem magnam velit.','cover1.jpeg','Incrocio De luca','2001-07-17','Dott. Danny Sorrentino','Illum ut veniam ratione laborum excepturi exercitationem corporis quod fugiat quis quaerat modi.'),
 (2,'Cumque cum quia iste.','cover1.jpeg','Strada Conte','1996-06-26','Ing. Rita Amato','Doloremque magnam eos quae ut quia optio quas et rerum ex qui voluptatem quis.'),
 (3,'Nesciunt veritatis dolores nam.','cover1.jpeg','Rotonda Concetta','1999-08-17','Santo Valentini','Aut doloribus temporibus et est aut quia error nisi occaecati deserunt.'),
 (4,'Et voluptatem autem voluptas.','cover1.jpeg','Incrocio Amerigo','2007-04-19','Anselmo D\'angelo','Placeat ab enim cupiditate dolores magnam labore facilis cumque aut dolorem unde qui et nulla inventore qui non.'),
-(5,'Minima est et.','cover1.jpeg','Piazza Pagano','2022-01-21','Gianmarco Esposito','Dolor ut illum numquam corrupti nobis quam id qui enim adipisci veritatis eum maiores sint amet et ad nemo in rerum iste.');
+(5,'Minima est et.','cover1.jpeg','Piazza Pagano','2022-01-21','Gianmarco Esposito','Dolor ut illum numquam corrupti nobis quam id qui enim adipisci veritatis eum maiores sint amet et ad nemo in rerum iste.'),
+(6,'La meraviglia dei Capybara','cover_capybara.jpg','Tutto il mondo','2023-05-29','CapybaraHandler','Capybaras are the world largest rodents and are known for being friendly and social. They are sometimes kept as pets and can even be used as therapy animals. Capybaras are excellent swimmers and can hold their breath underwater for up to five minutes.');
 
 INSERT INTO `photos` VALUES
 (1, 'image1.jpg', 1, 'Alt_Text'),
@@ -174,7 +177,35 @@ INSERT INTO `photos` VALUES
 (97, 'image97.jpg', 2, 'Alt_Text'),
 (98, 'image98.jpg', 3, 'Alt_Text'),
 (99, 'image99.jpg', 4, 'Alt_Text'),
-(100, 'image100.jpg', 5, 'Alt_Text');
+(100, 'image100.jpg', 6, 'Alt_Text'),
+(101, 'image105.jpg', 6, 'Alt_Text'),
+(102, 'image107.jpg', 6, 'Alt_Text'),
+(103, 'image108.jpg', 6, 'Alt_Text'),
+(104, 'image109.jpg', 6, 'Alt_Text'),
+(105, 'image110.jpg', 6, 'Alt_Text'),
+(106, 'image111.jpg', 6, 'Alt_Text'),
+(107, 'image112.jpg', 6, 'Alt_Text'),
+(108, 'image113.jpg', 6, 'Alt_Text'),
+(109, 'image114.jpg', 6, 'Alt_Text'),
+(110, 'image116.jpg', 6, 'Alt_Text'),
+(111, 'image117.jpg', 6, 'Alt_Text'),
+(112, 'image118.jpg', 6, 'Alt_Text'),
+(113, 'image119.jpg', 6, 'Alt_Text'),
+(114, 'image120.jpg', 6, 'Alt_Text'),
+(115, 'image121.jpg', 6, 'Alt_Text'),
+(116, 'image122.jpg', 6, 'Alt_Text'),
+(117, 'image123.jpg', 6, 'Alt_Text'),
+(118, 'image124.jpg', 6, 'Alt_Text'),
+(119, 'image125.jpg', 6, 'Alt_Text'),
+(120, 'image126.jpg', 6, 'Alt_Text'),
+(121, 'image127.jpg', 6, 'Alt_Text'),
+(122, 'image128.jpg', 6, 'Alt_Text'),
+(123, 'image129.jpg', 6, 'Alt_Text'),
+(124, 'image131.jpg', 6, 'Alt_Text'),
+(125, 'image132.jpg', 6, 'Alt_Text'),
+(126, 'image133.jpg', 6, 'Alt_Text'),
+(127, 'image134.jpg', 6, 'Alt_Text'),
+(128, 'image135.jpg', 6, 'Alt_Text');
 
 INSERT INTO `photo_ratings` VALUES
 (1,1,1),
@@ -590,4 +621,32 @@ INSERT INTO `photo_favorites` VALUES
 (3,51),
 (3,54),
 (3,57),
-(3,60);
+(3,60),
+(4,101),
+(4,102),
+(4,103),
+(4,104),
+(4,105),
+(4,106),
+(4,107),
+(4,108),
+(4,109),
+(4,110),
+(4,111),
+(4,112),
+(4,113),
+(4,114),
+(4,115),
+(4,116),
+(4,117),
+(4,118),
+(4,119),
+(4,120),
+(4,121),
+(4,122),
+(4,123),
+(4,124),
+(4,125),
+(4,126),
+(4,127),
+(4,128);

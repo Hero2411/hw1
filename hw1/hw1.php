@@ -43,7 +43,7 @@
     </div>
 
     <div class="titoli">
-        <h1> Sezione foto random 16:9 <img id="refresh_images" src="./immagini/refresh.png" width=50px/></h1>
+        <h1> Sezione foto random 16:9 <img id="refresh_images" src="./immagini/refresh.png" width=35px/></h1>
         <p>Web programming refers to the creation
             of websites and web applications using
             various programming languages. Below

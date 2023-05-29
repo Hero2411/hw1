@@ -14,7 +14,7 @@ function isAuthorized($db_connector) {
     $auth = false;
     if (isset($_GET['token'])) {
         $token = $_GET['token'];
-        $query = "SELECT COUNT(*) as count FROM users WHERE password = '$token'";
+        $query = "SELECT COUNT(*) as count FROM users WHERE token = '$token'";
         $result = $db_connector->query($query);
         if (!$result) {
             $response_data["error"] = "Unable to execute Token validation";

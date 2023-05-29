@@ -11,7 +11,7 @@
         </div>
 
         <div class="logo">
-            <a href="https://www.instagram.com/alter.photography_" target="_blank">
+            <a href="./hw1.php" target="_self">
                 <img src="immagini/logo.png" alt="logo">
             </a>
         </div>

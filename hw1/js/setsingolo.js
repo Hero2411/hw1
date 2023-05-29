@@ -4,16 +4,31 @@ const next = document.getElementById("next")
 prev.addEventListener("click", prevSet)
 next.addEventListener("click", nextSet)
 
+const likebutton = document.getElementById("like-button")
+const sendrating = document.getElementById("rating_input_btn")
+const rating_input = document.getElementById("rating_input")
+const sendcomment = document.getElementById("comment_input_btn")
+const comment_input = document.getElementById("comment_input")
+
+likebutton.addEventListener("click", setLike)
+sendrating.addEventListener("click", setRating)
+sendcomment.addEventListener("click", sendComment)
+
+var currentImage = -1
+
+
+
+
 async function getSetData() {
     if (set_id == 0) {
         alert("No Set provided, redirecting to home...");
-        window.location.href="hw1.php"
+        window.location.href = "hw1.php"
     }
     const response = await fetch(`./backend/fetch_set.php?id=${set_id}`);
     var jsonData = await response.json();
     if (jsonData["data"] == undefined) {
         alert(`Unable to get Set due to: ${jsonData["error"]}`)
-        window.location.href="hw1.php"
+        window.location.href = "hw1.php"
     }
     else {
         jsonData = jsonData["data"]
@@ -55,10 +70,14 @@ async function getSetData() {
         image_gallery.appendChild(image_div);
     }
     );
-  }
+}
 
-  async function onClickGetImageData(event) {
-    img_id = event.target.dataset.id;
+async function onClickGetImageData(event) {
+    loadImageData(event.target.dataset.id)
+}
+
+async function loadImageData(img_id) {
+    currentImage = img_id;
     const response = await fetch(`./backend/fetch_image_data.php?id=${img_id}`);
     var jsonData = await response.json();
     if (jsonData["data"] == undefined) {
@@ -68,28 +87,106 @@ async function getSetData() {
         jsonData = jsonData["data"]
     }
     rating = document.getElementById("rating")
-    rating.innerHTML = jsonData["avg_rating"]
+    rating.innerHTML = `${parseFloat(jsonData["avg_rating"])} out of 5 ⭐`
     comments = document.getElementById("comments")
     comments.innerHTML = ""
     jsonData["comments"].forEach(element => {
-        const comment = document.createElement("p")
-        comment.innerHTML = element["comment_text"]
+        const comment = document.createElement("div")
+        comment.classList.add("comment")
+
+        const comment_header = document.createElement("div")
+        comment_header.classList.add("comment-header")
+
+        const author = document.createElement("h3")
+        author.classList.add("comment-author")
+        author.innerHTML = `${element['username']}`
+        const comment_date = document.createElement("p")
+        comment_date.classList.add("comment-date")
+        comment_date.innerHTML = `${element['comment_date']}`
+        
+        
+        const comment_text = document.createElement("p")
+        comment_text.innerHTML = element["comment_text"]
+
+        comment_header.appendChild(author);
+        comment_header.appendChild(comment_date);
+
+        comment.appendChild(comment_header);
+        comment.appendChild(comment_text)
         comments.appendChild(comment);
     }
     );
-  }
+}
 
-  function nextSet() {
-    set_id+=1
+function nextSet() {
+    set_id += 1
+    window.history.pushState('next_set', 'Set', './setsingolo.php?id=' + set_id);
     getSetData()
-  }
+}
 
-  function prevSet() {
+function prevSet() {
     if ((set_id - 1) == 0) {
         return
     }
-    set_id-=1
+    set_id -= 1
+    window.history.pushState('prev_set', 'Set', './setsingolo.php?id=' + set_id);
     getSetData()
-  }
+}
 
-  getSetData()
+getSetData()
+
+window.addEventListener('scroll', function () {
+    if (window.pageYOffset > 425) {
+        prev.style.display = 'none';
+        next.style.display = 'none';
+    }
+    else {
+        prev.style.display = 'block';
+        next.style.display = 'block';
+    }
+});
+
+async function setLike() {
+    const response = await fetch(`./backend/like.php?image_id=${currentImage}&token=${getCookie("token")}`);
+    var jsonData = await response.json();
+    if (jsonData["data"] == undefined) {
+        alert(`Unable to like image due to: ${jsonData["error"]}`)
+    }
+    else {
+        alert("Liked successfull")
+    }
+}
+
+async function setRating() {
+    var num_rating = rating_input.value;
+    if (num_rating <= 0 ||num_rating >5) {
+        alert(`Invalid rating value`)
+        return
+    }
+    const response = await fetch(`./backend/rating.php?image_id=${currentImage}&token=${getCookie("token")}&rate=${num_rating}`);
+    var jsonData = await response.json();
+    if (jsonData["data"] == undefined) {
+        alert(`Unable to rate image due to: ${jsonData["error"]}`)
+    }
+    else {
+        alert(`${jsonData["data"]}`)
+    }
+    loadImageData(currentImage);
+}
+
+async function sendComment() {
+    var comment = comment_input.value;
+    if (comment == "" || comment.match(/^ +$/g)) {
+        alert(`Invalid comment`)
+        return
+    }
+    const response = await fetch(`./backend/comment.php?image_id=${currentImage}&token=${getCookie("token")}&comment=${comment}`);
+    var jsonData = await response.json();
+    if (jsonData["data"] == undefined) {
+        alert(`Unable to rate image due to: ${jsonData["error"]}`)
+    }
+    else {
+        alert(`${jsonData["data"]}`)
+    }
+    loadImageData(currentImage);
+}
